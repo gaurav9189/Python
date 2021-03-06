@@ -15,8 +15,13 @@ def pwned_api(hash_char):
 
 
 def hash_generator(password):
+    '''
+    the output from the pwned_api function is a response object which has a text method.
+    The text method is used to then splilines to create a list, this list is then splitted with split method
+    this provides a list of [passwordhash, count] -> this is then used for matching the 'last' hash
+    '''
     pw = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
-    # print(pw)
+    # print(pw) this creates a hashpassword
     first_5, last = pw[:5], pw[5:]
     # print(first_5)
     # print(last)
